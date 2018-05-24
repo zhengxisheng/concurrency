@@ -11,14 +11,18 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by zhengxisheng on 2018/5/21.
- * 1.ReentrantLoak volatile state = 0/1判断是否获得锁
- * 2.底层维护双向队列存贮阻塞线程
- * 3.ReentrantLoak 可以使用公平锁和非公平锁
+ *
+ * 1.ReentrantLoak  AQS volatile state = 0/1判断是否获得锁
+ *
+ * 2.底层维护双向队列存贮阻塞线程，通过CAS进行值的交换
+ *
+ * 3.ReentrantLock 可以使用公平锁和非公平锁
+ *
  * 4.公平锁tryAcquire会查看队列中是否有等待线程,非公平锁不会
  *
  */
 @Slf4j
-public class LockExample {
+public class ReentrantLockExample {
 
     public static int clientTotal = 5000;
     public static int threadTotal = 200;
