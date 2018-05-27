@@ -11,6 +11,8 @@ import java.util.concurrent.Executors;
  * new ThreadPoolExecutor(1, 1,0L, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>())
  *
  *  public LinkedBlockingQueue() {this(Integer.MAX_VALUE);}
+ *
+ *  使用一个线程处理所有任务，保证所有的任务FIFO
  */
 @Slf4j
 public class SingleThreadPoolExample {
